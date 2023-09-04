@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Employee_Dept_Crud.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create">Add Department</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Did)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dname)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Did)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Did }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.Did }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Did })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
